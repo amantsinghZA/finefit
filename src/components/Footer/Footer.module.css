@@ -1,0 +1,52 @@
+.footer {
+  background: var(--maroon-dark);
+  color: rgba(255,255,255,0.7);
+  padding: var(--space-16) 0 0;
+  margin-top: var(--space-20);
+}
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.4fr;
+  gap: var(--space-12);
+  padding-bottom: var(--space-12);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+@media (max-width: 900px) { .grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .grid { grid-template-columns: 1fr; gap: var(--space-8); } }
+
+.brand {}
+.logo { height: 60px; width: auto; object-fit: contain; margin-bottom: var(--space-4); }
+.tagline { font-size: var(--text-xs); letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: var(--space-3); }
+.about { font-size: var(--text-sm); line-height: 1.75; color: rgba(255,255,255,0.5); max-width: 300px; }
+
+.col {}
+.colTitle {
+  font-size: var(--text-xs);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: var(--space-4);
+}
+.colLinks { display: flex; flex-direction: column; gap: var(--space-2); }
+.colLinks li { font-size: var(--text-sm); color: rgba(255,255,255,0.55); }
+
+.contactList { display: flex; flex-direction: column; gap: var(--space-3); margin-bottom: var(--space-5); }
+.contactItem { display: flex; gap: var(--space-2); font-size: var(--text-sm); color: rgba(255,255,255,0.6); align-items: flex-start; }
+.contactIcon { flex-shrink: 0; }
+.contactItem a { color: rgba(255,255,255,0.7); transition: color var(--transition-fast); }
+.contactItem a:hover { color: var(--gold); }
+
+.hours { background: rgba(255,255,255,0.05); border-radius: var(--radius-md); padding: var(--space-4); }
+.hoursRow { display: flex; justify-content: space-between; font-size: var(--text-xs); padding: 3px 0; color: rgba(255,255,255,0.55); }
+.hoursRow span:last-child { color: rgba(255,255,255,0.8); }
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  padding: var(--space-5) 0;
+  font-size: var(--text-xs);
+  color: rgba(255,255,255,0.3);
+}

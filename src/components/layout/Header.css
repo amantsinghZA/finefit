@@ -1,0 +1,222 @@
+.announcement-bar {
+  background: var(--maroon-dk);
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 9px 16px;
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.announcement-bar .sep {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* ── HEADER ── */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--maroon-dk);
+  transition: box-shadow 0.3s ease;
+}
+
+.site-header.scrolled {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  gap: 20px;
+}
+
+/* ── LOGO ── */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.logo-crest {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.logo-name {
+  font-family: 'Cinzel', serif;
+  font-size: 1.2rem;
+  color: var(--white);
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+.logo-sub {
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-top: 2px;
+}
+
+/* ── DESKTOP NAV ── */
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.nav-link {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px 14px;
+  border-radius: var(--radius);
+  transition: all var(--t-fast);
+  white-space: nowrap;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--gold);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.nav-link.active {
+  color: var(--gold);
+}
+
+.nav-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.6) !important;
+  margin-left: 8px;
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  padding-left: 18px;
+}
+
+.nav-wa:hover {
+  color: var(--wa-green) !important;
+}
+
+/* ── ACTIONS ── */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.icon-btn {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.8);
+  transition: all var(--t-fast);
+}
+
+.icon-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--gold);
+}
+
+.cart-badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--maroon-dk);
+  font-size: 10px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+/* ── MOBILE MENU ── */
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  top: calc(70px + 38px); /* header + announcement */
+  background: var(--maroon-dk);
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 40px 24px;
+  animation: fadeIn var(--t-fast);
+}
+
+.mob-nav-link {
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.85);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  letter-spacing: 0.06em;
+  transition: color var(--t-fast);
+}
+
+.mob-nav-link:hover,
+.mob-nav-link.active {
+  color: var(--gold);
+}
+
+.mob-wa {
+  color: var(--wa-green) !important;
+  font-family: 'Lato', sans-serif !important;
+  font-size: 1rem !important;
+  font-weight: 700;
+}
+
+.mob-cart-btn {
+  margin-top: 20px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .desktop-nav {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .announcement-bar .sep,
+  .announcement-bar span:nth-child(n+3) {
+    display: none;
+  }
+}

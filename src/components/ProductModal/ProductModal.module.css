@@ -1,0 +1,223 @@
+/* Full-screen backdrop */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.72);
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  backdrop-filter: blur(3px);
+  animation: fadeIn 0.2s ease;
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* Modal panel */
+.modal {
+  position: relative;
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  max-width: 900px;
+  width: 100%;
+  max-height: 92vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-xl);
+  animation: slideUp 0.25s ease;
+}
+@keyframes slideUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Close button */
+.closeBtn {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--grey-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: background var(--transition-fast);
+  color: var(--text-primary);
+}
+.closeBtn:hover { background: var(--maroon); color: var(--white); }
+
+/* Two-column layout */
+.inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 480px;
+}
+@media (max-width: 640px) { .inner { grid-template-columns: 1fr; } }
+
+/* Image column */
+.imageCol {
+  background: var(--grey-50);
+  border-radius: var(--radius-xl) 0 0 var(--radius-xl);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 640px) {
+  .imageCol { border-radius: var(--radius-xl) var(--radius-xl) 0 0; height: 280px; }
+}
+
+.lifestyleWrap { flex: 1; overflow: hidden; }
+.lifestyleImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumbWrap {
+  height: 80px;
+  padding: var(--space-2);
+  background: var(--white);
+  border-top: 1px solid var(--grey-100);
+}
+.thumbImg { height: 100%; width: auto; object-fit: contain; margin: 0 auto; }
+
+/* Detail column */
+.detailCol {
+  padding: var(--space-8) var(--space-8) var(--space-6);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+@media (max-width: 640px) { .detailCol { padding: var(--space-5) var(--space-5) var(--space-6); } }
+
+.breadcrumb {
+  font-size: var(--text-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--maroon-dark);
+  line-height: 1.2;
+}
+
+.productId { font-size: var(--text-xs); color: var(--grey-400); }
+
+.description {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+/* Features */
+.features { display: flex; flex-direction: column; gap: var(--space-1); }
+.features li {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+.featureDot { color: var(--gold-dark); font-size: 11px; margin-top: 2px; flex-shrink: 0; }
+
+.note {
+  font-size: var(--text-sm);
+  color: var(--maroon);
+  font-style: italic;
+  background: rgba(107,30,42,0.06);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--maroon);
+}
+
+/* Variant groups */
+.variantGroup { display: flex; flex-direction: column; gap: var(--space-2); }
+.variantLabel { font-size: var(--text-sm); color: var(--text-secondary); }
+.variantLabel strong { color: var(--text-primary); }
+
+/* Colour swatches */
+.swatches { display: flex; gap: var(--space-2); flex-wrap: wrap; }
+.swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2.5px solid rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+.swatch:hover { transform: scale(1.15); }
+.swatchActive { border-color: var(--maroon) !important; box-shadow: 0 0 0 2px var(--maroon); }
+
+/* Sizes */
+.sizes { display: flex; gap: var(--space-2); flex-wrap: wrap; }
+.sizeBtn {
+  min-width: 40px;
+  padding: var(--space-1) var(--space-2);
+  border: 1.5px solid var(--grey-200);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--text-secondary);
+  background: var(--white);
+  transition: all var(--transition-fast);
+}
+.sizeBtn:hover { border-color: var(--maroon); color: var(--maroon); }
+.sizeBtnActive { background: var(--maroon); color: var(--white); border-color: var(--maroon); }
+
+/* Quantity */
+.qtyRow { display: flex; align-items: center; gap: var(--space-3); }
+.qtyBtn {
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid var(--grey-200);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+.qtyBtn:hover { border-color: var(--maroon); color: var(--maroon); }
+.qtyNum { font-weight: 700; font-size: var(--text-base); min-width: 24px; text-align: center; }
+
+/* Action buttons */
+.actions { display: flex; flex-direction: column; gap: var(--space-3); margin-top: var(--space-2); }
+
+.btnWa {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  background: var(--wa-green);
+  color: var(--white);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  transition: background var(--transition-fast);
+}
+.btnWa:hover { background: var(--wa-green-dk); }
+
+.btnCart {
+  padding: var(--space-3) var(--space-5);
+  background: var(--maroon);
+  color: var(--white);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  transition: background var(--transition-fast);
+}
+.btnCart:hover { background: var(--maroon-light); }
+.btnCartAdded { background: #2E7D32 !important; }
+
+.priceNote {
+  font-size: var(--text-xs);
+  color: var(--text-light);
+  text-align: center;
+  margin-top: var(--space-2);
+}

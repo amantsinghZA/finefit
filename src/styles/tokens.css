@@ -1,0 +1,106 @@
+/* ============================================================
+   FINE FIT DESIGN TOKENS
+   Single source of truth for all design decisions.
+   Update here and changes cascade through the entire site.
+   ============================================================ */
+
+:root {
+  /* --- Brand Colours (from approved logo) --- */
+  --maroon:       #6B1E2A;   /* Primary brand maroon */
+  --maroon-dark:  #4E1520;   /* Darker maroon for nav/footer */
+  --maroon-light: #8A2737;   /* Hover states */
+  --gold:         #C9A84C;   /* Primary gold accent */
+  --gold-light:   #E2C97E;   /* Light gold for hover/highlights */
+  --gold-dark:    #A8873A;   /* Darker gold for text on light bg */
+
+  /* --- Neutrals --- */
+  --white:        #FFFFFF;
+  --cream:        #F8F5F0;   /* Off-white background */
+  --grey-50:      #F2F2F2;
+  --grey-100:     #E5E5E5;
+  --grey-200:     #D4D4D4;
+  --grey-400:     #9A9A9A;
+  --grey-600:     #5A5A5A;
+  --grey-800:     #2A2A2A;
+  --black:        #111111;
+
+  /* --- Semantic Colours --- */
+  --text-primary:   #1A1A1A;
+  --text-secondary: #555555;
+  --text-light:     #888888;
+  --bg-page:        #F8F5F0;
+  --bg-white:       #FFFFFF;
+  --bg-dark:        #4E1520;
+
+  /* --- WhatsApp Brand --- */
+  --wa-green:     #25D366;
+  --wa-green-dk:  #1DA851;
+
+  /* --- Product Colour Swatches --- */
+  /* These map to the available colour variants for products */
+  --swatch-black:       #1A1A1A;
+  --swatch-navy:        #0A1F3D;
+  --swatch-grey:        #6B7280;
+  --swatch-cedar-green: #2D4A2D;
+  --swatch-choc-brown:  #4A2C0A;
+  --swatch-khaki:       #8B7355;
+  --swatch-green-camo:  #4A5C2A;
+  --swatch-grey-camo:   #6B7A6B;
+
+  /* --- Typography --- */
+  --font-display: 'Cinzel', serif;       /* Headers, logo text, section titles */
+  --font-body:    'Lato', sans-serif;    /* Body text, UI labels, buttons */
+
+  /* --- Font Sizes (fluid) --- */
+  --text-xs:   0.75rem;   /*  12px */
+  --text-sm:   0.875rem;  /*  14px */
+  --text-base: 1rem;      /*  16px */
+  --text-lg:   1.125rem;  /*  18px */
+  --text-xl:   1.25rem;   /*  20px */
+  --text-2xl:  1.5rem;    /*  24px */
+  --text-3xl:  1.875rem;  /*  30px */
+  --text-4xl:  2.25rem;   /*  36px */
+
+  /* --- Spacing (8px grid) --- */
+  --space-1:  0.25rem;   /*  4px */
+  --space-2:  0.5rem;    /*  8px */
+  --space-3:  0.75rem;   /* 12px */
+  --space-4:  1rem;      /* 16px */
+  --space-5:  1.25rem;   /* 20px */
+  --space-6:  1.5rem;    /* 24px */
+  --space-8:  2rem;      /* 32px */
+  --space-10: 2.5rem;    /* 40px */
+  --space-12: 3rem;      /* 48px */
+  --space-16: 4rem;      /* 64px */
+  --space-20: 5rem;      /* 80px */
+  --space-24: 6rem;      /* 96px */
+
+  /* --- Border Radius --- */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  /* --- Shadows --- */
+  --shadow-sm:  0 1px 4px rgba(0,0,0,0.08);
+  --shadow-md:  0 4px 16px rgba(0,0,0,0.10);
+  --shadow-lg:  0 8px 32px rgba(0,0,0,0.14);
+  --shadow-xl:  0 16px 48px rgba(0,0,0,0.18);
+
+  /* --- Transitions --- */
+  --transition-fast:   0.15s ease;
+  --transition-base:   0.25s ease;
+  --transition-slow:   0.4s ease;
+
+  /* --- Z-Index layers --- */
+  --z-base:    1;
+  --z-dropdown: 100;
+  --z-sticky:  200;
+  --z-modal:   300;
+  --z-toast:   400;
+
+  /* --- Layout --- */
+  --max-width: 1280px;
+  --nav-height: 72px;
+}
