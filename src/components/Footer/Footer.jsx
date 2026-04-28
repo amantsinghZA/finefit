@@ -1,9 +1,6 @@
-/* ============================================================
-   Footer Component
-   ============================================================ */
 import styles from './Footer.module.css';
 
-export default function Footer() {
+export default function Footer({ onNavigate }) {
   return (
     <footer className={styles.footer} id="contact">
       <div className="container">
@@ -23,12 +20,12 @@ export default function Footer() {
           <div className={styles.col} id="about">
             <h4 className={styles.colTitle}>Products</h4>
             <ul className={styles.colLinks}>
-              <li>Combat Uniform</li>
-              <li>Step-Out Uniform</li>
-              <li>Security Accessories</li>
-              <li>Security Footwear</li>
-              <li>Core Workwear</li>
-              <li>PPE Accessories</li>
+              <li><button onClick={() => onNavigate('security', 'combat')}>Combat Uniform</button></li>
+              <li><button onClick={() => onNavigate('security', 'stepout')}>Step-Out Uniform</button></li>
+              <li><button onClick={() => onNavigate('security', 'accessories')}>Security Accessories</button></li>
+              <li><button onClick={() => onNavigate('security', 'footwear')}>Security Footwear</button></li>
+              <li><button onClick={() => onNavigate('ppe', 'workwear')}>Core Workwear</button></li>
+              <li><button onClick={() => onNavigate('ppe', 'ppeAcc')}>PPE Accessories</button></li>
             </ul>
           </div>
 

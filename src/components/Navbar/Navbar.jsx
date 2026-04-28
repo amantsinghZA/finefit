@@ -6,7 +6,7 @@
 import { useState, useEffect } from 'react';
 import styles from './Navbar.module.css';
 
-export default function Navbar({ cartCount, onCartOpen, onSearch, searchQuery }) {
+export default function Navbar({ cartCount, onCartOpen, onSearch, searchQuery, onNavigate }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -35,8 +35,8 @@ export default function Navbar({ cartCount, onCartOpen, onSearch, searchQuery })
 
             {/* Desktop links */}
             <ul className={styles.navLinks}>
-              <li><a href="#security">Security</a></li>
-              <li><a href="#ppe">PPE</a></li>
+              <li><a href="#products" onClick={(e) => { e.preventDefault(); onNavigate('security'); }}>Security</a></li>
+              <li><a href="#products" onClick={(e) => { e.preventDefault(); onNavigate('ppe'); }}>PPE</a></li>
               <li><a href="#about">About Us</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
@@ -79,8 +79,8 @@ export default function Navbar({ cartCount, onCartOpen, onSearch, searchQuery })
       {/* Mobile dropdown */}
       {mobileMenuOpen && (
         <div className={styles.mobileMenu}>
-          <a href="#security" onClick={() => setMobileMenuOpen(false)}>Security</a>
-          <a href="#ppe" onClick={() => setMobileMenuOpen(false)}>PPE</a>
+          <a href="#products" onClick={(e) => { e.preventDefault(); onNavigate('security'); setMobileMenuOpen(false); }}>Security</a>
+          <a href="#products" onClick={(e) => { e.preventDefault(); onNavigate('ppe'); setMobileMenuOpen(false); }}>PPE</a>
           <a href="#about" onClick={() => setMobileMenuOpen(false)}>About Us</a>
           <a href="#contact" onClick={() => setMobileMenuOpen(false)}>Contact</a>
           <button onClick={() => { onCartOpen(); setMobileMenuOpen(false); }}>

@@ -30,6 +30,18 @@
 }
 .colLinks { display: flex; flex-direction: column; gap: var(--space-2); }
 .colLinks li { font-size: var(--text-sm); color: rgba(255,255,255,0.55); }
+.colLinks li button {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: var(--text-sm);
+  font-family: inherit;
+  color: rgba(255,255,255,0.55);
+  cursor: pointer;
+  text-align: left;
+  transition: color var(--transition-fast);
+}
+.colLinks li button:hover { color: var(--gold); }
 
 .contactList { display: flex; flex-direction: column; gap: var(--space-3); margin-bottom: var(--space-5); }
 .contactItem { display: flex; gap: var(--space-2); font-size: var(--text-sm); color: rgba(255,255,255,0.6); align-items: flex-start; }

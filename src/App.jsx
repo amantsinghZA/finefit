@@ -1,9 +1,3 @@
-/* ============================================================
-   FINE FIT - Root App Component
-   Manages global state: cart, active page, product modal.
-   All child components receive what they need via props.
-   For a larger site, consider React Context or Zustand.
-   ============================================================ */
 import { useState } from 'react';
 import { useCart } from './hooks/useCart';
 import Navbar from './components/Navbar/Navbar';
@@ -16,36 +10,41 @@ import Footer from './components/Footer/Footer';
 import WhatsAppFAB from './components/WhatsAppFAB/WhatsAppFAB';
 
 function App() {
-  // --- Quote cart state (managed by useCart hook) ---
   const { cartItems, cartCount, addToCart, removeFromCart, updateQuantity, clearCart } = useCart();
 
-  // --- UI state ---
   const [cartOpen, setCartOpen] = useState(false);
-  const [selectedProduct, setSelectedProduct] = useState(null); // Product currently in modal
-  const [activeCategory, setActiveCategory] = useState('all');  // 'all' | 'security' | 'ppe'
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [activeCategory, setActiveCategory] = useState('all');
   const [activeSubcategory, setActiveSubcategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Open product detail modal
   const openProduct = (product) => setSelectedProduct(product);
-
-  // Close product detail modal
   const closeProduct = () => setSelectedProduct(null);
+
+  // Single navigation handler shared by Navbar, Hero, Footer, and CategoryNav.
+  // Sets both category + subcategory then smooth-scrolls to the product grid.
+  const handleNavigate = (category, subcategory = 'all') => {
+    setActiveCategory(category);
+    setActiveSubcategory(subcategory);
+    setTimeout(() => {
+      document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' });
+    }, 0);
+  };
 
   return (
     <div className="app">
-      {/* ── Top navigation bar ── */}
       <Navbar
         cartCount={cartCount}
         onCartOpen={() => setCartOpen(true)}
         onSearch={setSearchQuery}
         searchQuery={searchQuery}
+        onNavigate={handleNavigate}
       />
 
-      {/* ── Hero banner (homepage only) ── */}
-      {!searchQuery && activeCategory === 'all' && <Hero />}
+      {!searchQuery && activeCategory === 'all' && (
+        <Hero onNavigate={handleNavigate} />
+      )}
 
-      {/* ── Category + subcategory filter tabs ── */}
       <CategoryNav
         activeCategory={activeCategory}
         activeSubcategory={activeSubcategory}
@@ -53,7 +52,6 @@ function App() {
         onSubcategoryChange={setActiveSubcategory}
       />
 
-      {/* ── Product grid ── */}
       <ProductGrid
         activeCategory={activeCategory}
         activeSubcategory={activeSubcategory}
@@ -61,7 +59,6 @@ function App() {
         onProductClick={openProduct}
       />
 
-      {/* ── Product detail modal (popup) ── */}
       {selectedProduct && (
         <ProductModal
           product={selectedProduct}
@@ -70,7 +67,6 @@ function App() {
         />
       )}
 
-      {/* ── Quote cart drawer ── */}
       <QuoteCart
         isOpen={cartOpen}
         onClose={() => setCartOpen(false)}
@@ -80,11 +76,9 @@ function App() {
         onClearCart={clearCart}
       />
 
-      {/* ── Floating WhatsApp button ── */}
       <WhatsAppFAB />
 
-      {/* ── Footer ── */}
-      <Footer />
+      <Footer onNavigate={handleNavigate} />
     </div>
   );
 }
